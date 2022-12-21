@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 
 const themeDetails = {
   colors: {
-    background: "#29293d",
-    primary: "#d8d8dd",
+    background: "#1f1f2e",
+    primary: "#f1f1f1",
     secondary: "#5fc1e2",
-    background_dark: "#1a1a27", 
+    background_dark: "#11111e", 
     primary_dark: "#60869a",
     secondary_dark: "#6c6c74",
   },
@@ -23,7 +23,7 @@ const Theme = ({ children }) => (
 )
 
 Theme.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.arrayOf(PropTypes.element)
 }
 
 export default Theme

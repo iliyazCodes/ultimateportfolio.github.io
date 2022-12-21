@@ -1,18 +1,21 @@
 import styled from "styled-components"
+import GlobalStyles from "./Global/Styles/GlobalStyles"
+import Theme from "./Global/Styles/Theme"
+import Dashboard from "./Pages/Dashboard"
 
-const AppWrapper = styled.div`
-   width: 100vw;
-   height: 100vh;
-   overflow: auto;
-   position: relative;
-   background: ${(props) => `radial-gradient(at top, ${props.theme.colors.background}, ${props.theme.colors.background_dark})`};
+const AppContainer = styled.div`
+   padding-top: var(--header-top-height);
 `
 
-function App() {
+const App = () => {
   return (
-    <AppWrapper>
-      App
-    </AppWrapper>
+    <Theme>
+      <GlobalStyles />
+      <AppContainer>
+        <Dashboard />
+      </AppContainer>
+    </Theme>
+
   )
 }
 
