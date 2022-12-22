@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
@@ -7,7 +6,6 @@ import HEADER_LIST from "../../Global/Data/HeaderList"
 import { LINK_TYPES, SCROLL_DIRECTIONS } from "../../Global/Data/Constants"
 import useScrollDirection from "../../Global/Hooks/useScrollDirection"
 import PropTypes from "prop-types"
-import Hamburger from "./Hamburger"
 import SideMenu from "./SideMenu"
 
 const HeaderContainer = styled.header`
@@ -60,6 +58,7 @@ const LogoContainer = styled.div`
     align-items: center;
     justify-content: center;
     a {
+      display: flex;
         &:focus-visible {
             outline: 2px dashed ${({ theme }) => theme.colors.secondary};
             outline-offset: 3px;
@@ -71,7 +70,7 @@ const LogoContainer = styled.div`
     }
 `
 const LogoStyled = styled.img`
-    width: 50px;
+    width: 60px;
     aspect-ratio: 1 / 1;
 `
 const ListContainer = styled.div`
@@ -100,6 +99,7 @@ const ListItem = styled.li`
         text-decoration: none;
         transition: var(--transition);
         padding: 0.5em 0.8em;
+        font-size: 16px;
 
             &:hover {
                 color: ${({ theme }) => theme.colors.secondary};

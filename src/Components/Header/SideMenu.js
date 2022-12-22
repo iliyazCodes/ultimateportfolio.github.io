@@ -20,8 +20,7 @@ const SideBarStyled = styled.div`
         top: 0;
         bottom: 0;
         left: 0;
-        padding: 50px 10px;
-        padding-top: 75px;
+        padding: 5em 1em;
         outline: 0;
         width: min(75vw, 400px);
         background-color: ${({ theme }) => theme.colors.background};

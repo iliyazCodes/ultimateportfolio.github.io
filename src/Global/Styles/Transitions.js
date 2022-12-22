@@ -38,6 +38,30 @@ export const TransitionStyles = css`
     opacity: 0;
     transition: opacity 300ms var(--easing);
   }
+
+  /* Slide */
+  .slide-enter-active {
+    animation: slide ease-in 500ms calc((var(--delay) - 1.5) * 100ms - 150ms) reverse both;
+  }
+
+  .slide-exit-active {
+    animation: slide ease-out 500ms calc((var(--delay) - 1.5) * 100ms - 150ms) both;
+  }
+
+  .slide-enter-done {
+    animation: none;
+    translate: 0 !important;
+  }
+
+  @keyframes slide {
+    0% {
+      translate: 0;
+    }
+
+    100% {
+      translate: calc(var(--container-width) * var(--direction, 1));
+    }
+}
 `
 
 export default TransitionStyles

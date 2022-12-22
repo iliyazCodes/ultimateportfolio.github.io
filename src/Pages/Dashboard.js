@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import Header from "../Components/Header/Index"
-import Main from "../Components/Main/Index"
+import Header from "../Components/Header"
+import Main from "../Components/Main"
 
 const DashboardContainer = styled.div`
 `
