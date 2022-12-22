@@ -7,8 +7,8 @@ const themeDetails = {
     primary: "#f1f1f1",
     secondary: "#5fc1e2",
     background_dark: "#11111e", 
-    primary_dark: "#60869a",
-    secondary_dark: "#6c6c74",
+    primary_dark: "#6c6c74",
+    secondary_dark: "#60869a",
   },
   fonts: ["'Poppins', sans-serif"],
   fontSizes: {

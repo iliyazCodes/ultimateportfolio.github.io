@@ -61,7 +61,33 @@ export const TransitionStyles = css`
     100% {
       translate: calc(var(--container-width) * var(--direction, 1));
     }
-}
+  }
+
+  /* Sqeeze */
+
+
+  .sqeeze-enter {
+    height: 0 !important;
+    opacity: 0.01;
+    transition: height 300ms var(--easing), opacity 300ms var(--easing);
+
+    @media (max-width: 768px) {
+      height: 1px !important;
+      width: 0 !important;
+      transition: width 300ms var(--easing), opacity 300ms var(--easing);
+    }
+  }
+  .sqeeze-enter-active {
+    opacity: 1;
+    height: 100% !important;
+    transition: height 300ms var(--easing), opacity 300ms var(--easing);
+
+    @media (max-width: 768px) {
+      height: 1px !important;
+      width: 100% !important;
+      transition: width 300ms var(--easing), opacity 300ms var(--easing);
+    }
+  }
 `
 
 export default TransitionStyles

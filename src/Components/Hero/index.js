@@ -27,14 +27,15 @@ const HeroBannerStyled = styled.div`
 
     position: relative;
     width: var(--container-width);
+    height: var(--container-width);
     display: flex;
     flex-direction: column;
     gap: var(--unit);
     overflow: hidden;
     margin: auto;
-    margin-top: 8em;
     cursor: pointer;
     pointer-events: none;
+    margin-top: calc(var(--container-width) / 5);
 
     &:has(div.slide-enter-done) {
         pointer-events: initial;
