@@ -4,7 +4,7 @@ import styled from "styled-components"
 import HERO_DATA from "../../Global/Data/Hero"
 
 const HeroBannerStyled = styled.div`
-    --container-width: 650px;
+    --container-width: 70vh;
     --unit: 10px;
 
     .col.size-2 { --size: 2; }
@@ -35,7 +35,8 @@ const HeroBannerStyled = styled.div`
     margin: auto;
     cursor: pointer;
     pointer-events: none;
-    margin-top: calc(var(--container-width) / 5);
+    margin-top: calc(var(--container-width) / 7);
+    max-width: 650px;
 
     &:has(div.slide-enter-done) {
         pointer-events: initial;
@@ -93,7 +94,8 @@ const HeroBannerCol = styled.div`
 
 const HeroBanner = () => {
   const [isMounted, setIsMounted] = useState(false)
-  const timeout = 4000
+  const [initialLoad, setInitialLoad] = useState(true)
+  const timeout = 3000
   useEffect(() => {
     setTimeout(() => {
       setIsMounted(true)
@@ -104,7 +106,14 @@ const HeroBanner = () => {
     setIsMounted(false)
     setTimeout(() => {
       setIsMounted(true)
-    }, timeout / 2)
+    }, timeout / 1.5)
+  }
+
+  const scrollToContent = () => {
+    if (window.scrollY === 0 && initialLoad) {
+      window.scrollTo({ top: 350, behavior: "smooth" })
+      setInitialLoad(false)
+    }
   }
   
   return (
@@ -113,11 +122,13 @@ const HeroBanner = () => {
         {
           HERO_DATA.map((row, i) => {
             return (
-              isMounted && <CSSTransition classNames={"slide"} key={i} timeout={timeout}>
-                <HeroBannerRow>
-                  {row.map((col, j) => <HeroBannerCol className={`col size-${col.size}`} key={i + "" + j} color={col.color}></HeroBannerCol>)}
-                </HeroBannerRow>
-              </CSSTransition>
+              isMounted && (
+                <CSSTransition onEntered={scrollToContent} classNames={"slide"} key={i} timeout={timeout}>
+                  <HeroBannerRow>
+                    {row.map((col, j) => <HeroBannerCol className={`col size-${col.size}`} key={i + "" + j} color={col.color}></HeroBannerCol>)}
+                  </HeroBannerRow>
+                </CSSTransition>
+              )
             )
           })
         }

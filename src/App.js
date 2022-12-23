@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import GlobalStyles from "./Global/Styles/GlobalStyles"
 import Theme from "./Global/Styles/Theme"
-import Dashboard from "./Pages/Dashboard"
+import { BrowserRouter as Router } from "react-router-dom"
+import AppRoutes from "./Global/Routes"
+import Header from "./Components/Header"
+import ProgressIconProvider from "./Global/Contexts/ScrollProgressIconMapper"
 
 const AppContainer = styled.div`
    padding-top: var(--header-top-height);
@@ -9,12 +12,17 @@ const AppContainer = styled.div`
 
 const App = () => {
   return (
-    <Theme>
-      <GlobalStyles />
-      <AppContainer>
-        <Dashboard />
-      </AppContainer>
-    </Theme>
+    <Router>
+      <Theme>
+        <GlobalStyles />
+        <ProgressIconProvider>
+          <AppContainer>
+            <Header />
+            <AppRoutes />
+          </AppContainer>
+        </ProgressIconProvider>
+      </Theme>
+    </Router>
 
   )
 }

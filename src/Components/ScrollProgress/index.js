@@ -5,6 +5,8 @@ import styled from "styled-components"
 import { LINK_TYPES } from "../../Global/Data/Constants"
 import HeaderList from "../../Global/Data/HeaderList"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
+import { useProgressIconContext } from "../../Global/Contexts/ScrollProgressIconMapper"
+import { scrollToEl } from "../../Global/Utils/ScrollReveal"
 
 
 const ScrollProgressStyled = styled.div`
@@ -17,13 +19,17 @@ const ScrollProgressStyled = styled.div`
    align-items: center;
    justify-content: center;
 
+   @media (max-width: 1080px) {
+      left: 1.5em;
+    }
+
    @media (max-width: 768px) {
         top: initial;
         width: initial;
-        bottom: .5em;
+        bottom: ${({ hasIcons }) => hasIcons ? ".5em" : "0"};
         left: 0;
         right: 0;
-        height: 3em;
+        height: ${({ hasIcons }) => hasIcons ? "3em" : "1px"};
     }
 `
 const Indicator = styled.div`
@@ -38,7 +44,6 @@ const Indicator = styled.div`
         width: 100%;
     }
 `
-
 const IndicatorProgress = styled.div.attrs(({ progress }) => ({
   style: {
     bottom: `${100 - progress}%`
@@ -56,7 +61,6 @@ const IndicatorProgress = styled.div.attrs(({ progress }) => ({
             display: none;
         }
 `
-
 const IndicatorProgressMobile = styled.div.attrs(({ progress }) => ({
   style: {
     right: `${100 - progress}%`
@@ -76,7 +80,6 @@ const IndicatorProgressMobile = styled.div.attrs(({ progress }) => ({
             display: block;
         }
   `
-
 const IconWrapper = styled.button`
     cursor: pointer;
     position: absolute;
@@ -116,10 +119,11 @@ const IconWrapper = styled.button`
 `
 
 const ScrollProgress = () => {
+  const { iconRefs } = useProgressIconContext()
   const [scrollPercentage, setScrollPercentage] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
   const [icons, setIcons] = useState()
-  const iconsList = HeaderList.filter((item) => item.type === LINK_TYPES.LINK)
+  const iconsList = HeaderList.filter((item) => (item.type === LINK_TYPES.LINK && item.icon))
   const iconHeight = 50
 
   const onScroll = () => {
@@ -130,15 +134,17 @@ const ScrollProgress = () => {
 
   const mountIcons = () => {
     const iconsWithTop = iconsList.map((item, i) => {
-      let totalThresold = iconHeight * (iconsList.length - 1)
-      const el = document.getElementById(item.label.toLowerCase())
+      let totalThresold = (iconHeight - 5) * (iconsList.length - 1)
+      const el = iconRefs.find((refItem) => refItem.id === item.href)?.ref?.current
       if (!el) {
         return null
       }
       const distance = (el.offsetTop - el.scrollTop + el.clientTop) - (totalThresold - ((i + 1) * iconHeight))
+      const top = (distance / document.body.offsetHeight) * 100
       return {
         ...item,
-        top: (distance / document.body.offsetHeight) * 100,
+        top: top < 7.5 ? 7.5 : top,
+        el
       }
     })
 
@@ -146,39 +152,44 @@ const ScrollProgress = () => {
   }
 
   const scrollToId = (item) => {
-    const el = document.getElementById(item.label.toLowerCase())
-    if (!el) {
+    if (!item.el) {
       return
     }
 
-    const yOffset = -100
-    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
-    window.scrollTo({ top: y, behavior: "smooth" })
+    scrollToEl(item.el)
   }
 
   useEffect(() => {
+    if (!iconRefs?.length) {
+      return
+    }
+    mountIcons()
+  }, [iconRefs])
+
+  useEffect(() => {
     window.addEventListener("scroll", onScroll)
+    window.addEventListener("resize", onScroll)
+    const isScrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight !== 0
+    if (!isScrollable) {
+      return
+    }
     setTimeout(() => {
-      const isScrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight !== 0
-      if (!isScrollable) {
-        return
-      }
       setIsMounted(true)
-      mountIcons()
-    }, 100)
+    }, 3000)
     return () => {
       window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
     }
-  }, [])
+  }, []) 
 
   return (
-    <ScrollProgressStyled>
+    <ScrollProgressStyled hasIcons={!!icons?.length}>
       <TransitionGroup component={null}>
         {isMounted && (
           <CSSTransition classNames={"sqeeze"} timeout={500}>
             <Indicator>
               <IndicatorProgress progress={scrollPercentage}/>
-              <IndicatorProgressMobile progress={scrollPercentage}/>
+              <IndicatorProgressMobile progress={scrollPercentage} />
               {icons?.length && (
                 icons.map((icon) => (
                   icon && (

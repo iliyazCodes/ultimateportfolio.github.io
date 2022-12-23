@@ -11,9 +11,11 @@ const variables = css`
     --xs-space-size: 1em;
     --md-space-size: 2em;
     --lg-space-size: 3em;
-    --font-size-1: 1em;
-    --font-size-2: 2em;
-    --font-size-3: 3em;
+    --font-size-1: 12px;
+    --font-size-2: 16px;
+    --font-size-3: 24px;
+    --font-size-4: 32px;
+    --font-heading: 32px;
     --font-family: 'Poppins', sans-serif;
   }
 `

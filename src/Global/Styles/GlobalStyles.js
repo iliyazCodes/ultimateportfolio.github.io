@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     *, *::before, *::after {
         box-sizing: border-box;
         font-weight: 400;
-        font-size: var(--font-size-1);
+        font-size: var(--font-size-2);
     }
 
     body {
@@ -23,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html, body {
-        overflow: auto;
         overscroll-behavior-y: none;
     }
 

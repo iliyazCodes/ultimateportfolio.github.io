@@ -51,8 +51,8 @@ export default [
     { size: 13, color: "primary" },
     { size: 6, color: "primary" },
     { size: 5, color: "primary" },
-    { size: 2, color: "secondary_dark" },
-    { size: 5, color: "secondary_dark" },
+    { size: 3, color: "secondary_dark" },
+    { size: 4, color: "secondary_dark" },
   ],
   [
     { size: 3, color: "secondary_dark" },
@@ -165,8 +165,8 @@ export default [
     { size: 6, color: "primary" },
     { size: 12, color: "primary" },
     { size: 10, color: "primary" },
-    { size: 2, color: "secondary_dark" },
-    { size: 5, color: "secondary_dark" },
+    { size: 4, color: "secondary_dark" },
+    { size: 3, color: "secondary_dark" },
   ],
   [
     { size: 1, color: "secondary_dark" },
