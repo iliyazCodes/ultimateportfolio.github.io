@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { KEY_CODES, LINK_TYPES } from "../../Global/Data/Constants"
 import Hamburger from "./Hamburger"
 import HEADER_LIST from "../../Global/Data/HeaderList"
+import { HashLink } from "react-router-hash-link"
+import { scrollToEl } from "../../Global/Utils/ScrollReveal"
 
 const SideMenuStyled = styled.div`
   display: none;
@@ -183,7 +185,7 @@ const SideMenu = () => {
           <ul ref={navRef}>
             {HEADER_LIST.map((item) => {
               return item.type === LINK_TYPES.LINK ? (
-                <ListItem key={item.id}><a href={item.href}>{item.label}</a></ListItem>
+                <ListItem key={item.id}><HashLink onClick={() => setIsMenuOpen(false)} scroll={scrollToEl} to={`#${item.href}`}>{item.label}</HashLink></ListItem>
               ) : (
                 <ResumeButton key={item.id} onClick={() => headerButtonClickHandler(item.label)}>{item.label}</ResumeButton>
               )

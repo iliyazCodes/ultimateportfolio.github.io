@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
+import PropTypes from "prop-types"
+import { HashLink } from "react-router-hash-link"
 import Logo from "./../../assets/images/logo.png"
 import HEADER_LIST from "../../Global/Data/HeaderList"
 import { LINK_TYPES, SCROLL_DIRECTIONS } from "../../Global/Data/Constants"
 import useScrollDirection from "../../Global/Hooks/useScrollDirection"
-import PropTypes from "prop-types"
 import SideMenu from "./SideMenu"
+import { scrollToEl } from "../../Global/Utils/ScrollReveal"
 
 const HeaderContainer = styled.header`
     position: fixed;
@@ -99,7 +101,7 @@ const ListItem = styled.li`
         text-decoration: none;
         transition: var(--transition);
         padding: 0.5em 0.8em;
-        font-size: 16px;
+        font-size: var(--font-size-2);
 
             &:hover {
                 color: ${({ theme }) => theme.colors.secondary};
@@ -172,9 +174,15 @@ const Header = ({ home = true }) => {
             <TransitionGroup component={null}>
               {HEADER_LIST.map((item, i) => {
                 const listItem =  item.type === LINK_TYPES.LINK ? (
-                  <ListItem style={{ transitionDelay: `${home ? i * 100 : 0}ms`}} key={item.id}><a href={item.href}>{item.label}</a></ListItem>
+                  <ListItem style={{ transitionDelay: `${home ? i * 100 : 0}ms`}} key={item.id}>
+                    <HashLink to={`#${item.href}`} scroll={scrollToEl}>{item.label}</HashLink>
+                  </ListItem>
                 ) : (
-                  <ResumeButton style={{ transitionDelay: `${home ? i * 100 : 0}ms`}} key={item.id} onClick={() => headerButtonClickHandler(item.label)}>{item.label}</ResumeButton>
+                  <ResumeButton
+                    style={{ transitionDelay: `${home ? i * 100 : 0}ms`}}
+                    key={item.id} onClick={() => headerButtonClickHandler(item.label)}>
+                    {item.label}
+                  </ResumeButton>
                 )
 
                 return isMounted ? (
@@ -198,9 +206,9 @@ const Header = ({ home = true }) => {
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={fadeClass} timeout={timeout}>
-                <a href="#">
+                <HashLink to={"#"}  scroll={scrollToEl}>
                   <LogoStyled src={Logo} alt="logo" />
-                </a>
+                </HashLink>
               </CSSTransition>
             )}
           </TransitionGroup>
