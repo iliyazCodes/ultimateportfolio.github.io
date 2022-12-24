@@ -25,6 +25,8 @@ export const KEY_CODES = {
   ENTER: "Enter",
 }
 
+export const LOADER_TIME = 2000
+
 export const screenRevealConfig = (delay = 100, viewFactor = 0.1) => ({
   origin: "bottom",
   distance: "20px",
