@@ -9,6 +9,17 @@ import { screenRevealConfig } from "../Data/Constants"
 const Container = styled.div`
     margin-bottom: 5em;
     width: 100%;
+    max-width: 1000px;
+    margin: auto;
+
+
+    &:nth-child(2n) .title{
+      flex-direction: row;
+
+      &::after {
+            margin-left: 1em;
+        }
+    }
 `
 
 const ContainerTitle = styled.h3`
@@ -19,47 +30,23 @@ const ContainerTitle = styled.h3`
     width: 100%;
     font-size: var(--font-heading);
     white-space: nowrap;
-    margin-left: 6em;
+    flex-direction: row-reverse;
     padding: 0;
 
-
-    &::before {
-        content: "";
-        position: absolute;
-        height: 1px;
-        width: 9em;
-        left: -10em;
-        background-color: ${({ theme }) => theme.colors.secondary};
-        top: calc(50% - 1px);
-    }
-
-    @media (max-width: 1080px) {
-        margin-left: 3em;
-
-        &::before {
-            width: 4.5em;
-            left: -5em;
-        }
-    }
-
-    @media (max-width: 768px) {
-        margin-left: 0;
-        font-size: var(--font-size-3);
-
-        &::before {
-            content: none
-        }
-
-        &::after {
+    &::after {
             content: "";
             display: block;
             position: relative;
             top: calc(50% - 1px);
             width: 100%;
             height: 1px;
-            margin-left: .5em;
-            background-color: ${({ theme }) => theme.colors.secondary};
+            margin-right: 1em;
+            background-color: ${({ theme }) => theme.colors.secondary_dark};
         }
+
+    @media (max-width: 768px) {
+        margin-left: 0;
+        font-size: var(--font-size-3);
     }
 `
 
@@ -78,7 +65,7 @@ const ContainerIdMapper = ({ children, id, title, showInProgress, scrollToReveal
   }, [])
   return (
     <Container id={id} ref={containerRef} key={id}>
-      {title && <ContainerTitle>{title}</ContainerTitle>}
+      {title && <ContainerTitle className="title">{title}</ContainerTitle>}
       {children}
     </Container>
   )

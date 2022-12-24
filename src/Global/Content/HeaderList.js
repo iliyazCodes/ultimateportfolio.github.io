@@ -2,7 +2,7 @@ import Contact from "../../Components/Contact"
 import Work from "../../Components/Work"
 import Experience from "../../Components/Experience"
 import About from "../../Components/About"
-import { LINK_TYPES } from "./Constants"
+import { LINK_TYPES } from "../Data/Constants"
 
 export default [
   {
@@ -15,13 +15,13 @@ export default [
     title: "Looking for a Web Developer?",
   },
   {
-    label: "Experience",
+    label: "Skills",
     href: "experience",
     id: "nav-list-item-1",
     type: LINK_TYPES.LINK,
     icon: "briefcase",
     component: Experience,
-    title: "Companies I worked"
+    title: "My Skills & Experience"
   },
   {
     label: "Work",
@@ -30,7 +30,7 @@ export default [
     type: LINK_TYPES.LINK,
     icon: "keyboard",
     component: Work,
-    title: "Some of my Work"
+    title: "Some Things I’ve Built"
   },
   {
     label: "Contact",

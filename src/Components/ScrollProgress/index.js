@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import { LINK_TYPES } from "../../Global/Data/Constants"
-import HeaderList from "../../Global/Data/HeaderList"
+import HeaderList from "../../Global/Content/HeaderList"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useProgressIconContext } from "../../Global/Contexts/ScrollProgressIconMapper"
 import { scrollToEl } from "../../Global/Utils/ScrollReveal"
@@ -30,6 +30,24 @@ const ScrollProgressStyled = styled.div`
         left: 0;
         right: 0;
         height: ${({ hasIcons }) => hasIcons ? "3em" : "1px"};
+        padding: .8em 0;
+        bottom: 0;
+        background-color: ${({ theme }) => theme.colors.background_dark}85;
+        backdrop-filter: blur(10px);
+        box-sizing: content-box;
+        box-shadow: var(--footer-mobile-box-shadow);
+        transform: translateY(100%);
+        animation: 300ms var(--easing) 2.5s forwards alternate fade-up;
+
+        @keyframes fade-up {
+          0% {
+            transform: translateY(100%);
+          }
+
+          100% {
+            transform: translateY(0);
+          }
+        }
     }
 `
 const Indicator = styled.div`
@@ -113,8 +131,13 @@ const IconWrapper = styled.button`
     } 
 
     @media (max-width: 768px) {
-         left: calc(${({ top }) => top}%);
+         left: calc((100% / ${({ iconsLength }) => iconsLength}) * ${({iconIndex}) => iconIndex});
          top: initial;
+         border: 2px solid ${({ theme }) => theme.colors.secondary_dark };
+
+         svg {
+           color: ${({ theme }) => theme.colors.secondary_dark };
+         }
     }
 `
 
@@ -133,6 +156,7 @@ const ScrollProgress = () => {
   }
 
   const mountIcons = () => {
+    let extratop = false
     const iconsWithTop = iconsList.map((item, i) => {
       let totalThresold = (iconHeight - 5) * (iconsList.length - 1)
       const el = iconRefs.find((refItem) => refItem.id === item.href)?.ref?.current
@@ -141,9 +165,12 @@ const ScrollProgress = () => {
       }
       const distance = (el.offsetTop - el.scrollTop + el.clientTop) - (totalThresold - ((i + 1) * iconHeight))
       const top = (distance / document.body.offsetHeight) * 100
+      if (top < 7.5 && !extratop) {
+        extratop = true
+      }
       return {
         ...item,
-        top: top < 7.5 ? 7.5 : top,
+        top: extratop ? top + 5 : top,
         el
       }
     })
@@ -191,9 +218,9 @@ const ScrollProgress = () => {
               <IndicatorProgress progress={scrollPercentage}/>
               <IndicatorProgressMobile progress={scrollPercentage} />
               {icons?.length && (
-                icons.map((icon) => (
+                icons.map((icon, i) => (
                   icon && (
-                    <IconWrapper iconHeight={iconHeight} onClick={() => scrollToId(icon)} key={icon.icon} top={icon.top} progress={scrollPercentage}>
+                    <IconWrapper iconsLength={icons.length} iconIndex={i + .5} iconHeight={iconHeight} onClick={() => scrollToId(icon)} key={icon.icon} top={icon.top} progress={scrollPercentage}>
                       <FontAwesomeIcon icon={icon.icon} />
                     </IconWrapper>
                   )

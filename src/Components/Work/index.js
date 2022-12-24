@@ -7,9 +7,6 @@ const Work = () => {
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
     </div>
   )
 }

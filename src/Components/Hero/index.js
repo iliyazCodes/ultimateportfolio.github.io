@@ -95,7 +95,7 @@ const HeroBannerCol = styled.div`
 const HeroBanner = () => {
   const [isMounted, setIsMounted] = useState(false)
   const [initialLoad, setInitialLoad] = useState(true)
-  const timeout = 3000
+  const timeout = 2500
   useEffect(() => {
     setTimeout(() => {
       setIsMounted(true)
@@ -111,7 +111,7 @@ const HeroBanner = () => {
 
   const scrollToContent = () => {
     if (window.scrollY === 0 && initialLoad) {
-      window.scrollTo({ top: 350, behavior: "smooth" })
+      window.scrollTo({ top: 450, behavior: "smooth" })
       setInitialLoad(false)
     }
   }

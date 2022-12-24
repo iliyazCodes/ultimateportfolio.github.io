@@ -2,7 +2,7 @@ import styled from "styled-components"
 import HeroBanner from "../Hero"
 import ScrollProgress from "../ScrollProgress"
 import ContainerIdMapper from "../../Global/Hoc/ContainerIdMapper"
-import HeaderList from "../../Global/Data/HeaderList"
+import HeaderList from "../../Global/Content/HeaderList"
 import { LINK_TYPES } from "../../Global/Data/Constants"
 
 const MainStyled = styled.main`
@@ -16,6 +16,7 @@ const MainStyled = styled.main`
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 5em;
+    margin-bottom: 10em;
 
     div {
       flex: 0 0 30%;
