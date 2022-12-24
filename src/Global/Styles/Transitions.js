@@ -176,6 +176,26 @@ export const TransitionStyles = css`
       transform: rotate(360deg);
     }
   }
+
+  /* slide-up */
+
+  .slide-up-enter {
+   max-height: 0px;
+   overflow: hidden;
+  }
+  .slide-up-enter-active {
+    max-height: 1000px;
+    transition: max-height 500ms var(--easing);
+  }
+
+  .slide-up-exit {
+   max-height: 1000px;
+   overflow: hidden;
+  }
+  .slide-up-exit-active {
+    max-height: 0px; 
+    transition: max-height 500ms var(--easing);
+  }
 `
 
 export default TransitionStyles
