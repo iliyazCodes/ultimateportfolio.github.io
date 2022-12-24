@@ -4,7 +4,6 @@ import { about } from "../../Global/Content"
 import { screenRevealConfig } from "../../Global/Data/Constants"
 import scrollReveal from "../../Global/Utils/ScrollReveal"
 import Img from "../../assets/images/my_image.jpg"
-import { useLoaderContext } from "../../Global/Contexts/LoarderContext"
 
 const AboutContainer = styled.section`
    margin-top: 8em;
@@ -12,7 +11,7 @@ const AboutContainer = styled.section`
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-   color: ${({theme}) => theme.colors.primary};
+   color: ${({theme}) => theme.colors.primary_dark};
 
    h4 {
     font-size: var(--font-size-3);
@@ -29,6 +28,7 @@ const AboutContainer = styled.section`
     margin-bottom: 15px;
     margin-top: 0;
     font-family: var(--font-size-1);
+    color: ${({theme}) => theme.colors.primary_dark};
     
     span.accent {
       color: ${({theme}) => theme.colors.secondary};
@@ -112,25 +112,16 @@ const Aside = styled.div`
 const About = () => {
   const contentRef = useRef(null)
   const asideRef = useRef(null)
-  const { show, hide } = useLoaderContext()
 
   useEffect(() => {
     scrollReveal.reveal(contentRef.current, screenRevealConfig(200))
     scrollReveal.reveal(asideRef.current, screenRevealConfig(400))
   }, [])
 
-  const showandhideloader = () => {
-    show()
-    setTimeout(() => {
-      hide()
-    }, 0)
-  }
-
   return (
     <AboutContainer>
       <Content ref={contentRef}>
         {about}
-        <button onClick={showandhideloader} >Show Loader</button>
       </Content>
       <Aside ref={asideRef}>
         <img src={Img} alt="Display Picture" />

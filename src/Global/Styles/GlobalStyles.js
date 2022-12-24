@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-weight: 400;
         font-size: var(--font-size-2);
+        line-height: 1.3;
     }
 
     body {
