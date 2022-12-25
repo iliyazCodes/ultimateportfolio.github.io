@@ -1,7 +1,7 @@
-import Contact from "../../Components/Contact"
-import Work from "../../Components/Work"
-import Experience from "../../Components/Experience"
-import About from "../../Components/About"
+import Contact from "../../components/Contact"
+import Work from "../../components/Work"
+import Experience from "../../components/Experience"
+import About from "../../components/About"
 import { LINK_TYPES } from "../Data/Constants"
 
 export default [
