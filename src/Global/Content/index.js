@@ -98,3 +98,26 @@ export const jobs_content = [
     technology: ["HMTL", "CSS", "JS", "ReactJS", "React-Redux", "Redux-Saga"]
   }
 ]
+
+export const social_media = [
+  {
+    icon: "facebook",
+    link: "https://www.facebook.com/Iliyaz1995",
+    color: "#1a77f2"
+  },
+  {
+    icon: "instagram",
+    link: "https://www.instagram.com/iliyaz_syed",
+    color: "#af309a"
+  },
+  {
+    icon: "linkedin",
+    link: "https://in.linkedin.com/",
+    color: "#0c5eba"
+  },
+  {
+    icon: "github",
+    link: "https://github.com/iliyazCodes",
+    color: "#fff"
+  },
+]
