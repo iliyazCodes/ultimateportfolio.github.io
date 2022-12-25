@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import styled from "styled-components"
-import { jobs_content } from "../../Global/Content"
+import { jobs_content } from "../../global/content"
 
 const JobsStepperContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.background};

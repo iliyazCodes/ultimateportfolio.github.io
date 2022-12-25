@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import Logo from "../../assets/images/logo.png"
-import { useLoaderContext } from "../../Global/Contexts/LoarderContext"
+import { useLoaderContext } from "../../global/contexts/loarderContext"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
-import { LOADER_TIME } from "../../Global/Data/Constants"
+import { LOADER_TIME } from "../../global/data/constants"
 
 const LoaderContainer = styled.div`
   position: fixed;

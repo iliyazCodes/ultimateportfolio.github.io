@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import PropTypes from "prop-types"
-import { LOADER_TIME } from "../Data/Constants"
+import { LOADER_TIME } from "../data/constants"
 
 const LoaderContext = createContext({ isLoading: false })
 

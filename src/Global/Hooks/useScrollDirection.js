@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { SCROLL_DIRECTIONS } from "../Data/Constants"
+import { SCROLL_DIRECTIONS } from "../data/constants"
 
 const useScrollDirection = ({ initialDirection, thresholdPixels, off } = {}) => {
   const [scrollDir, setScrollDir] = useState(initialDirection)

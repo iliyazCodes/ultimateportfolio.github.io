@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import { screenRevealConfig } from "../../Global/Data/Constants"
-import scrollReveal from "../../Global/Utils/ScrollReveal"
-import JobsStepper from "./JobsStepper"
-import SkillsChart from "./SkillsChart"
+import { screenRevealConfig } from "../../global/data/constants"
+import scrollReveal from "../../global/utils/scrollReveal"
+import JobsStepper from "./jobsStepper"
+import SkillsChart from "./skillsChart"
 
 const ExperienceContainer = styled.section`
    margin-top: 8em;

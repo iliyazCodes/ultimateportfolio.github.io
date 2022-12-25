@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
-import { KEY_CODES, LINK_TYPES } from "../../Global/Data/Constants"
-import Hamburger from "./Hamburger"
-import HEADER_LIST from "../../Global/Content/HeaderList"
+import { KEY_CODES, LINK_TYPES } from "../../global/data/constants"
+import Hamburger from "./hamburger"
+import HEADER_LIST from "../../global/content/headerList"
 import { HashLink } from "react-router-hash-link"
-import { scrollToEl } from "../../Global/Utils/ScrollReveal"
+import { scrollToEl } from "../../global/utils/scrollReveal"
 
 const SideMenuStyled = styled.div`
   display: none;

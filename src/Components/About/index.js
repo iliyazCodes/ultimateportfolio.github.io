@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react"
 import styled from "styled-components"
-import { about } from "../../Global/Content"
-import { screenRevealConfig } from "../../Global/Data/Constants"
-import scrollReveal from "../../Global/Utils/ScrollReveal"
+import { about } from "../../global/content"
+import { screenRevealConfig } from "../../global/data/constants"
+import scrollReveal from "../../global/utils/scrollReveal"
 import Img from "../../assets/images/my_image.jpg"
 
 const AboutContainer = styled.section`

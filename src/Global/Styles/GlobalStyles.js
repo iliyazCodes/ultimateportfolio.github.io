@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
-import TransitionStyles from "./Transitions"
-import variables from "./Variables"
+import TransitionStyles from "./transitions"
+import variables from "./variables"
 
 const GlobalStyles = createGlobalStyle`
     ${variables};

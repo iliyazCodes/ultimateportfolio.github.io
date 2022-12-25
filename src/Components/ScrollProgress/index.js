@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
-import { LINK_TYPES } from "../../Global/Data/Constants"
-import HeaderList from "../../Global/Content/HeaderList"
+import { LINK_TYPES } from "../../global/data/constants"
+import HeaderList from "../../global/content/headerList"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
-import { useProgressIconContext } from "../../Global/Contexts/ScrollProgressIconMapper"
-import { scrollToEl } from "../../Global/Utils/ScrollReveal"
+import { useProgressIconContext } from "../../global/contexts/scrollProgressIconMapper"
+import { scrollToEl } from "../../global/utils/scrollReveal"
 
 
 const ScrollProgressStyled = styled.div`

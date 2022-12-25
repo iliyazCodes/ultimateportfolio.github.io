@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
-import { skills_chart } from "../../Global/Content"
+import { skills_chart } from "../../global/content"
 
 const SkillsChartContainer = styled.div`
   flex: 0 0 45%;

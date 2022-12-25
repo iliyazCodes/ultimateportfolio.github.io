@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import PropTypes from "prop-types"
-import { useProgressIconContext } from "../Contexts/ScrollProgressIconMapper"
+import { useProgressIconContext } from "../contexts/scrollProgressIconMapper"
 import { useEffect, useRef } from "react"
-import scrollReveal from "../Utils/ScrollReveal"
-import { screenRevealConfig } from "../Data/Constants"
+import scrollReveal from "../utils/scrollReveal"
+import { screenRevealConfig } from "../data/constants"
 
 const Container = styled.div`
     margin-bottom: 5em;

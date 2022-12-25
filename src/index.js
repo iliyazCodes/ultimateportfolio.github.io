@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client"
 import App from "./App"
-import "./Global/Icons/index"
+import "./global/icons/index"
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))

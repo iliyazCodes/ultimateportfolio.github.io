@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import styled from "styled-components"
-import HERO_DATA from "../../Global/Data/Hero"
+import HERO_DATA from "../../global/data/hero"
 
 const HeroBannerStyled = styled.div`
     --container-width: 70vh;

@@ -4,11 +4,11 @@ import { CSSTransition, TransitionGroup } from "react-transition-group"
 import PropTypes from "prop-types"
 import { HashLink } from "react-router-hash-link"
 import Logo from "./../../assets/images/logo.png"
-import HEADER_LIST from "../../Global/Content/HeaderList"
-import { LINK_TYPES, SCROLL_DIRECTIONS } from "../../Global/Data/Constants"
-import useScrollDirection from "../../Global/Hooks/useScrollDirection"
-import SideMenu from "./SideMenu"
-import { scrollToEl } from "../../Global/Utils/ScrollReveal"
+import HEADER_LIST from "../../global/content/headerList"
+import { LINK_TYPES, SCROLL_DIRECTIONS } from "../../global/data/constants"
+import useScrollDirection from "../../global/hooks/useScrollDirection"
+import SideMenu from "./sideMenu"
+import { scrollToEl } from "../../global/utils/scrollReveal"
 
 const HeaderContainer = styled.header`
     position: fixed;

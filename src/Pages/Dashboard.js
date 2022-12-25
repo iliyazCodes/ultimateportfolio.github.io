@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Main from "../components/Main"
+import Main from "../components/main"
 
 const DashboardContainer = styled.div`
 `

@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import HeroBanner from "../Hero"
-import ScrollProgress from "../ScrollProgress"
-import ContainerIdMapper from "../../Global/Hoc/ContainerIdMapper"
-import HeaderList from "../../Global/Content/HeaderList"
-import { LINK_TYPES } from "../../Global/Data/Constants"
+import HeroBanner from "../hero"
+import ScrollProgress from "../scrollProgress"
+import ContainerIdMapper from "../../global/hoc/containerIdMapper"
+import HeaderList from "../../global/content/headerList"
+import { LINK_TYPES } from "../../global/data/constants"
 
 const MainStyled = styled.main`
    overflow: hidden;

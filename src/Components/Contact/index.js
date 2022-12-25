@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
-import { social_media } from "../../Global/Content"
+import { social_media } from "../../global/content"
 
 const ContactContainer = styled.div`
    max-width: 600px;
