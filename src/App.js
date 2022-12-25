@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router } from "react-router-dom"
+import { library } from "@fortawesome/fontawesome-svg-core"
 import GlobalStyles from "./global/styles/globalStyles"
 import Theme from "./global/styles/theme"
 import AppRoutes from "./global/routes"
@@ -9,6 +10,10 @@ import LoaderProvider from "./global/contexts/loarderContext"
 import Loader from "./components/loader"
 import { LOADER_TIME } from "./global/data/constants"
 import Header from "./components/header"
+import Icons from "./global/icons"
+
+
+library.add(Icons)
 
 const AppContainer = styled.div`
    padding-top: var(--header-top-height);
