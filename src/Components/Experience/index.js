@@ -8,6 +8,11 @@ import SkillsChart from "./SkillsChart"
 const ExperienceContainer = styled.section`
    margin-top: 8em;
    margin-bottom: 20em;
+
+   @media (max-width: 768px) {
+    margin-top: 3em;
+    margin-bottom: 10em;
+  }
 `
 const SkillsChartContainer = styled.div`
    max-width: 750px;
