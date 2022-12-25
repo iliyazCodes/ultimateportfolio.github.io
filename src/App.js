@@ -8,7 +8,7 @@ import ProgressIconProvider from "./Global/Contexts/ScrollProgressIconMapper"
 import LoaderProvider from "./Global/Contexts/LoarderContext"
 import Loader from "./Components/Loader"
 import { LOADER_TIME } from "./Global/Data/Constants"
-import Header from "../src/Components/Header"
+import Header from "./Components/Header"
 
 const AppContainer = styled.div`
    padding-top: var(--header-top-height);
