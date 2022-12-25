@@ -79,7 +79,7 @@ const ListItem = styled.li`
             }
     }
 `
-const ResumeButton = styled.button`
+const ResumeButton = styled.a`
    background-color: transparent;
    color: ${({ theme }) => theme.colors.secondary};
    border: 1px solid ${({ theme }) => theme.colors.secondary};
@@ -90,6 +90,7 @@ const ResumeButton = styled.button`
    transition: var(--transition);
    font-family: var(--font-family);
    margin-top: auto;
+   text-decoration: none;
 
    &:focus, &:hover {
     background-color: ${({ theme }) => theme.colors.secondary}25;
@@ -104,15 +105,6 @@ const SideMenu = () => {
   let menuFocusables
   let firstFocusableEl
   let lastFocusableEl
-
-
-  const headerButtonClickHandler = (type) => {
-    switch (type) {
-    case "Resume":
-      //   downloadResume()
-      return
-    }
-  }
 
   const setFocusables = () => {
     menuFocusables = [buttonRef.current, ...Array.from(navRef.current.childNodes)]
@@ -187,7 +179,7 @@ const SideMenu = () => {
               return item.type === LINK_TYPES.LINK ? (
                 <ListItem key={item.id}><HashLink onClick={() => setIsMenuOpen(false)} scroll={scrollToEl} to={`#${item.href}`}>{item.label}</HashLink></ListItem>
               ) : (
-                <ResumeButton key={item.id} onClick={() => headerButtonClickHandler(item.label)}>{item.label}</ResumeButton>
+                <ResumeButton target="_blank" key={item.id} href={item.href}>{item.label}</ResumeButton>
               )
             })}
           </ul>

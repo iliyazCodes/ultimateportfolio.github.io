@@ -112,7 +112,7 @@ const ListItem = styled.li`
             }
     }
 `
-const ResumeButton = styled.button`
+const ResumeButton = styled.a`
    background-color: transparent;
    color: ${({ theme }) => theme.colors.secondary};
    border: 1px solid ${({ theme }) => theme.colors.secondary};
@@ -122,6 +122,7 @@ const ResumeButton = styled.button`
    border-radius: var(--border-radius);
    transition: var(--transition);
    font-family: var(--font-family);
+   text-decoration: none;
 
    &:focus, &:hover {
     background-color: ${({ theme }) => theme.colors.secondary}25;
@@ -150,18 +151,6 @@ const Header = ({ home = true }) => {
     }
   }, [])
 
-  const headerButtonClickHandler = (type) => {
-    switch (type) {
-    case "Resume":
-      downloadResume()
-      return
-    }
-  }
-
-  const downloadResume = () => {
-    console.log("downloaded")
-  }
-
   const timeout = home ? 2000 : 0
   const fadeClass = home ? "fade" : ""
   const fadeDownClass = home ? "fadedown" : ""
@@ -180,7 +169,10 @@ const Header = ({ home = true }) => {
                 ) : (
                   <ResumeButton
                     style={{ transitionDelay: `${home ? i * 100 : 0}ms`}}
-                    key={item.id} onClick={() => headerButtonClickHandler(item.label)}>
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
+                  >
                     {item.label}
                   </ResumeButton>
                 )

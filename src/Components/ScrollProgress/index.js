@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
