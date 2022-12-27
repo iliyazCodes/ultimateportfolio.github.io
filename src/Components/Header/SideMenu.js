@@ -179,7 +179,7 @@ const SideMenu = () => {
               return item.type === LINK_TYPES.LINK ? (
                 <ListItem key={item.id}><HashLink onClick={() => setIsMenuOpen(false)} scroll={scrollToEl} to={`#${item.href}`}>{item.label}</HashLink></ListItem>
               ) : (
-                <ResumeButton target="_blank" key={item.id} href={item.href}>{item.label}</ResumeButton>
+                <ResumeButton download key={item.id} href={item.href}>{item.label}</ResumeButton>
               )
             })}
           </ul>
