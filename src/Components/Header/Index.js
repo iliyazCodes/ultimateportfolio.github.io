@@ -171,7 +171,7 @@ const Header = ({ home = true }) => {
                     style={{ transitionDelay: `${home ? i * 100 : 0}ms`}}
                     key={item.id}
                     href={item.href}
-                    target="_blank"
+                    download
                   >
                     {item.label}
                   </ResumeButton>

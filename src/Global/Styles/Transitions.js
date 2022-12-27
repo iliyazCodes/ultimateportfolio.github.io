@@ -196,6 +196,27 @@ export const TransitionStyles = css`
     max-height: 0px; 
     transition: max-height 500ms var(--easing);
   }
+
+
+  /* spin */
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+
+  @keyframes spin-reverse {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
 `
 
 export default TransitionStyles
