@@ -94,12 +94,7 @@ const StepHeader = styled.div`
  
 `
 const StepContent = styled.div`
-  padding-left: calc(var(--lg-space-size) * 1.8);
   color: ${({ theme }) => theme.colors.primary_dark};
-
-  @media (max-width: 768px) {
-    padding-left: calc(var(--md-space-size));
-  }
 `
 const JoiningLine = styled.div`
   position: relative;
@@ -123,6 +118,7 @@ const ResponsibilitiesList = styled.ul`
    list-style: none;
    padding: 0;
    margin-bottom: 1.5em;
+   padding-left: calc(var(--lg-space-size) * 1.8);
 
     li {
         margin-bottom: 0.8em;
@@ -137,6 +133,7 @@ const ResponsibilitiesList = styled.ul`
     }
 
     @media (max-width: 768px) {
+        padding-left: calc(var(--md-space-size));
         margin-left: 0;
 
         &::before {
@@ -149,32 +146,28 @@ const TechList = styled.ul`
    list-style: none;
    padding: 0;
    margin-bottom: 1em;
-   /* width: 60%; */
    margin: auto;
+   padding-left: calc(var(--lg-space-size) * 1.8);
+
 
     li {
         margin-bottom: 0.8em;
         position: relative;
         display: inline-block;
-        /* width: 50%; */
         padding: .5em 1em;
         border-radius: 100px;
         background-color: ${({ theme }) => theme.colors.secondary_dark};
         color: ${({ theme }) => theme.colors.primary};
         margin-right: .5em;
+   }
 
-    /* &::before {
-        content: "▹";
-        color: ${({ theme }) => theme.colors.secondary};
-        left: -30px;
-        top: 0;
-        position: absolute;
-    } */
+   @media (max-width: 768px) {
+     padding-left: calc(var(--md-space-size));
    }
 `
 
 const JobsStepper = () => {
-  const [activeStep, setActiveStep] = useState(0)
+  const [activeStep, setActiveStep] = useState(1)
 
   const onStepClick = (i) => {
     if (i === activeStep) {
