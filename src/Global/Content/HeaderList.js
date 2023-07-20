@@ -45,6 +45,6 @@ export default [
     label: "Resume",
     id: "nav-download-item-0",
     type: LINK_TYPES.BUTTON,
-    href: "/files/resume.pdf"
+    href: "/ultimate-portfolio/files/resume.pdf"
   },
 ]
